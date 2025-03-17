@@ -1,0 +1,131 @@
+.right-wrapper {
+    height: 100%;
+    width: 100%;
+
+    background-color: #EBEBEB;
+
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-container {
+    background-color: blue;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 25px;
+}
+
+.form-title {
+    text-align: center;
+    color: #000;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.email-wrapper, .password-wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+label {
+    font-size: 14px;
+    color: #767676;
+    font-weight: 500;
+}
+
+input[type="text"], input[type="password"] {
+    border: 2px #767676 solid;
+    border-radius: 5px;
+    padding: 8px 15px;
+    width: 250px;
+    height: 20px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    margin-top: 5px;
+    transition: .2s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border: 2px #6004FF solid;
+}
+
+.buttons-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 13px;
+}
+
+#authorize {
+    padding: 12px 0;
+    border: 2px solid #6004FF;
+    background-color: #6004FF;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: .2s ease-in-out;
+}
+
+#authorize:hover {
+    background-color: #ffffff;
+    color: #6004FF;
+}
+
+.google-logo {
+    width: 20px;
+}
+
+#with-google {
+    padding: 12px 0;
+    border: 2px solid rgba(154, 196, 255, 50%);
+    background-color: rgba(154, 196, 255, 50%);
+    color: #6004FF;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: .2s ease-in-out;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+}
+
+#with-google:hover {
+    background-color: white;
+}
+
+p {
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    justify-content: center;
+    font-weight: 500;
+}
+
+p span {
+    color: #6004FF;
+}
+

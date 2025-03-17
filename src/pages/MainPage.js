@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaPlus, FaBars, FaBell, FaUser, FaCloudUploadAlt, FaChartLine, FaCog, FaSignOutAlt } from "react-icons/fa";
-import { Button } from "./components/ui/button";
-import { Card, CardContent } from "./components/ui/card";
-import "./css/styles.css";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import "../css/styles.css";
 
 const receipts = [
   { id: 1, date: "11.11.2025", title: "Title", amount: 50000, category: "Foodstuff" },

@@ -1,0 +1,39 @@
+.left-wrapper {
+    height: 100vh;
+    background-color: #0C0021;
+    color: white;
+    display: flex;
+}
+
+.left-container {
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand {
+    padding-top: 30px;
+    font-size: 18px;
+    opacity: 80%;
+    text-align: center;
+}
+
+.motto {
+    padding-top: 20px;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: -30px;
+}
+
+#receipts-text {
+    color: #6004FF;
+}
+
+#title-img {
+    width: 80%;
+    align-self: center;
+}
