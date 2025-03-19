@@ -1,7 +1,7 @@
 import "../../css/RightSide.css";
 import googleLogo from "../../imgs/google-logo.png";
 
-export default function RightSide() {
+export default function RightSide({isLogin = false}) {
     return (
         <div className="right-wrapper">
 
@@ -10,39 +10,27 @@ export default function RightSide() {
                 <form className="auth">
 
                     <h3 className="form-title">
-                        Create an Account
+                        {isLogin === true ? "Login" : "Create an Account"}
                     </h3>
 
-                    <div className="email-wrapper">
-                        <label htmlFor="email">
-                            Email
-                        </label>
-                        <input type="text" name="email" id="" placeholder="Email"/>
-                    </div>
-
-                    <div className="password-wrapper">
-                        <label htmlFor="password">
-                            Password
-                        </label>
-                        <input type="password" name="password" id="" placeholder="Password"/>
-                    </div>
-
-                    <div className="buttons-column">
-                        <button type="button" id="authorize">
-                            Create Account
-                        </button>
-
-                        <button type="button" id="with-google">
-                            <img src={googleLogo} alt="Google Logo" className="google-logo"/>
-                            Continue With Google
-                        </button>
-                    </div>
+                    {isLogin === true ? <LoginForm/> : <SignUpForm/>}
 
                     <p>
-                        Already have an account?
-                        <span className="login">
+                        {
+                            isLogin === true ?
+                                <>
+                                    Dont' have an account?
+                                    <span className="go-to-auth">
+                            Create!
+                        </span>
+                                </> :
+                                <>
+                                    Already have an account?
+                                    <span className="go-to-login">
                             Login!
                         </span>
+                                </>
+                        }
                     </p>
 
                 </form>
@@ -51,4 +39,78 @@ export default function RightSide() {
 
         </div>
     )
+}
+
+function SignUpForm() {
+    return (
+        <>
+            <div className="email-wrapper">
+                <label htmlFor="email">
+                    Email
+                </label>
+                <input type="text" name="email" id="" placeholder="Email"/>
+            </div>
+
+            <div className="password-wrapper">
+                <label htmlFor="password">
+                    Password
+                </label>
+                <input type="password" name="password" id="" placeholder="Password"/>
+            </div>
+
+            <div className="buttons-column">
+                <button type="button" id="authorize">
+                    Create Account
+                </button>
+
+                <button type="button" id="with-google">
+                    <img src={googleLogo} alt="Google Logo" className="google-logo"/>
+                    Continue With Google
+                </button>
+            </div>
+        </>
+    )
+}
+
+function LoginForm() {
+    return <>
+        <div className="name-wrapper">
+            <label htmlFor="name">
+                Name
+            </label>
+            <input type="text" name="name" id="" placeholder="Name"/>
+        </div>
+
+        <div className="lastname-wrapper">
+            <label htmlFor="lastname">
+                Last Name
+            </label>
+            <input type="text" name="lastname" id="" placeholder="LastName"/>
+        </div>
+
+        <div className="email-wrapper">
+            <label htmlFor="email">
+                Email
+            </label>
+            <input type="text" name="email" id="" placeholder="Email"/>
+        </div>
+
+        <div className="password-wrapper">
+            <label htmlFor="password">
+                Password
+            </label>
+            <input type="password" name="password" id="" placeholder="Password"/>
+        </div>
+
+        <div className="buttons-column">
+            <button type="button" id="authorize">
+                Create Account
+            </button>
+
+            <button type="button" id="with-google">
+                <img src={googleLogo} alt="Google Logo" className="google-logo"/>
+                Continue With Google
+            </button>
+        </div>
+    </>
 }

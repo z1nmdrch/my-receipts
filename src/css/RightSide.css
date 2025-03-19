@@ -32,7 +32,7 @@ form {
     font-weight: 500;
 }
 
-.email-wrapper, .password-wrapper {
+.email-wrapper, .password-wrapper, .name-wrapper, .lastname-wrapper {
     display: flex;
     flex-direction: column;
 
