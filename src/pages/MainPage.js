@@ -3,6 +3,7 @@ import { FaPlus, FaBars, FaBell, FaUser, FaCloudUploadAlt, FaChartLine, FaCog, F
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import "../css/styles.css";
+import {Link} from "react-router-dom";
 
 const receipts = [
   { id: 1, date: "11.11.2025", title: "Title", amount: 50000, category: "Foodstuff" },
@@ -56,7 +57,9 @@ export default function ReceiptList({ onAddReceipt }) {
         </div>
         <ul className="sidebar-menu">
           <li><FaCloudUploadAlt /> Upload Receipts</li>
-          <li><FaChartLine /> Statistics</li>
+          <li><FaChartLine />
+              <Link to="/statistics">Statistics</Link>
+          </li>
           <li><FaCog /> Settings</li>
         </ul>
         <button className="logout-button"><FaSignOutAlt /> Exit</button>

@@ -1,0 +1,38 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 50px;
+}
+
+.option-buttons-row {
+    display: flex;
+    column-gap: 30px;
+}
+
+.option-button {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    background-color: inherit;
+    color: #6004FF;
+    border: 2px solid #6004FF;
+
+    cursor: pointer;
+}
+
+.active-button {
+    background-color: #6004FF;
+    color: white;
+
+    border: 2px solid #6004FF;
+}
+
+.stats-display {
+    padding-top: 50px;
+}
