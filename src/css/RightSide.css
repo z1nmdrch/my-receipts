@@ -125,7 +125,8 @@ p {
     font-weight: 500;
 }
 
-p span {
+p a {
+    text-decoration: none;
     color: #6004FF;
 }
 
