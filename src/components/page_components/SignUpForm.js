@@ -43,7 +43,7 @@ export default function SignUpForm() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({signUpData})
+                body: JSON.stringify(signUpData)
             });
 
             if (response.ok) {
