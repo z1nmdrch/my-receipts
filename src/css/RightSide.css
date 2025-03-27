@@ -22,7 +22,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 25px;
+    row-gap: 15px;
 }
 
 .form-title {
@@ -32,7 +32,7 @@ form {
     font-weight: 500;
 }
 
-.email-wrapper, .password-wrapper, .name-wrapper, .lastname-wrapper {
+.email-wrapper, .password-wrapper, .name-wrapper, .lastname-wrapper, .username-wrapper {
     display: flex;
     flex-direction: column;
 

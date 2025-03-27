@@ -6,10 +6,11 @@ export default function SignUpForm() {
     const navigation = useNavigate();
 
     const [signUpData, setSignUpData] = useState( {
-        name: "",
+        username: "",
+        firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        passwordHash: ""
     });
 
     const handleChange = (e) => {
@@ -20,44 +21,81 @@ export default function SignUpForm() {
         );
     }
 
-    const submitSignUp = (e) => {
-        e.preventDefault();
-        console.log("Sign Up Data: ", signUpData);
+    const submitSignUp = async (e) => {
+        if(
+            signUpData.lastName === "" ||
+            signUpData.email === "" ||
+            signUpData.firstName === "" ||
+            signUpData.passwordHash === "" ||
+            signUpData.username === ""
+        ) {
+            alert("Make sure to fill all the fields.");
+            return;
+        }
 
-        navigation("/home");
+        e.preventDefault();
+
+        console.log(signUpData);
+
+        try {
+            const response = await fetch("http://localhost:5000/sign-up", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({signUpData})
+            });
+
+            if (response.ok) {
+                navigation("/home");
+            } else {
+                const errorData = await response.json();
+                alert(`Ошибка, ${errorData}`);
+            }
+        } catch (error) {
+            alert(error)
+        }
     }
 
     return <>
+        <div className="username-wrapper">
+            <label htmlFor="username">
+                Username
+            </label>
+            <input type="text" name="username" placeholder="Username" required
+                   onChange={handleChange}/>
+        </div>
+
         <div className="name-wrapper">
-            <label htmlFor="name">
+            <label htmlFor="firstName">
                 Name
             </label>
-            <input type="text" name="name" id="" placeholder="Name" required
-            onChange={handleChange}/>
+            <input type="text" name="firstName" placeholder="First Name" required
+                   onChange={handleChange}/>
         </div>
 
         <div className="lastname-wrapper">
             <label htmlFor="lastName">
                 Last Name
             </label>
-            <input type="text" name="lastName" id="" placeholder="Last Name" required
-            onChange={handleChange}/>
+            <input type="text" name="lastName" placeholder="Last Name" required
+                   onChange={handleChange}/>
         </div>
 
         <div className="email-wrapper">
             <label htmlFor="email">
                 Email
             </label>
-            <input type="text" name="email" id="" placeholder="Email" required
-            onChange={handleChange}/>
+            <input type="text" name="email" placeholder="Email" required
+                   onChange={handleChange}/>
         </div>
 
         <div className="password-wrapper">
             <label htmlFor="password">
                 Password
             </label>
-            <input type="password" name="password" id="" placeholder="Password" required
-            onChange={handleChange}/>
+            <input type="password" name="passwordHash" placeholder="Password" required
+                   onChange={handleChange}/>
         </div>
 
         <div className="buttons-column">
