@@ -50,7 +50,7 @@ export default function SignUpForm() {
                 navigation("/home");
             } else {
                 const errorData = await response.json();
-                alert(`Ошибка, ${errorData}`);
+                alert(`Failed to sign up, ${errorData}`);
             }
         } catch (error) {
             alert(error)

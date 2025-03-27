@@ -1,8 +1,10 @@
 import {useState} from "react";
 import googleLogo from "../../imgs/google-logo.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function LoginForm() {
+    const navigation = useNavigate();
+
     const [loginData, setLoginData] = useState( { email: "", password: "" });
 
     const handleChange = (e) => {
@@ -13,8 +15,37 @@ export default function LoginForm() {
         );
     }
 
-    const submitLogin = (e) => {
+    const submitLogin = async (e) => {
+        if(
+            loginData.email === "" ||
+            loginData.password === ""
+        ) {
+            alert("Make sure to fill all the fields.")
+            return
+        }
+
         console.log("Submitted Data", loginData)
+
+        try {
+            const response = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(loginData)
+            });
+
+            if(response.ok) {
+                alert("Login successful!");
+                navigation("/home");
+            } else {
+                const errorMessage = response.json();
+                alert(`Failed to login, ${errorMessage}`);
+            }
+
+        } catch (error) {
+            alert(error)
+        }
     }
 
     return (
