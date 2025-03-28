@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { Card, CardContent } from "../components/ui/card";
-import "../css/styles.css";
 import Header from "../components/page_components/Header";
 import Sidebar from "../components/page_components/SideBar";
+import { Card, CardContent } from "../components/ui/card";
+import AddReceipt from "../components/page_components/AddReceipt"; // Импортируем новый компонент
+import "../css/styles.css";
 
 const receipts = [
     { id: 1, date: "11.11.2025", title: "Title", amount: 50000, category: "Foodstuff" },
@@ -12,7 +12,7 @@ const receipts = [
     { id: 4, date: "11.11.2025", title: "Title", amount: 10000, category: "Cafe" },
 ];
 
-export default function MainPage({ onAddReceipt }) {
+export default function MainPage() {
     const [filter, setFilter] = useState("All");
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(100000);
@@ -87,9 +87,8 @@ export default function MainPage({ onAddReceipt }) {
                 ))}
             </div>
 
-            <button onClick={onAddReceipt} className="add-button">
-                <FaPlus size={24} />
-            </button>
+            {/* Добавленная кнопка для добавления чека */}
+            <AddReceipt />
         </div>
     );
 }

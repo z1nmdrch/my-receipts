@@ -41,7 +41,7 @@ export default function Sidebar({ isOpen, onClose }) {
             <ul className="sidebar-menu">
                 <li><FaCloudUploadAlt />
                     <Link to="/home">
-                        Upload Receipts
+                        Main
                     </Link>
                 </li>
                 <li><FaChartLine />

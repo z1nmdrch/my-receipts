@@ -1,0 +1,27 @@
+input[type="file"] {
+    background-color: transparent;
+    border: none;
+}
+
+.image-preview {
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.custom-file-button {
+    background-color: #6003FF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.custom-file-button:hover {
+    background-color: #4d02cc;
+}
