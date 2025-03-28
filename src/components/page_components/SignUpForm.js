@@ -1,9 +1,12 @@
 import googleLogo from "../../imgs/google-logo.png";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import {useCookies} from "react-cookie";
 
 export default function SignUpForm() {
     const navigation = useNavigate();
+
+    const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
     const [signUpData, setSignUpData] = useState( {
         username: "",
@@ -47,6 +50,12 @@ export default function SignUpForm() {
             });
 
             if (response.ok) {
+                setCookie("user", JSON.stringify({
+                    username: signUpData.username,
+                    firstName: signUpData.firstName,
+                    lastName: signUpData.lastName,
+                    email: signUpData.email
+                }), { path: "/"});
                 navigation("/home");
             } else {
                 const errorData = await response.json();

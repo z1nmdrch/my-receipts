@@ -2,34 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import AuthPage from "./pages/AuthPage";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/MainPage.js";
 import LoginPage from "./pages/LoginPage";
 import StatisticsPage from "./pages/StatisticsPage";
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <AuthPage/>,
-    },
+import UserPage from "./pages/UserPage";
+import { CookiesProvider } from "react-cookie";
 
-    {
-        path: "/home",
-        element: <HomePage/>
-    },
-    {
-        path: "/login",
-        element: <LoginPage/>
-    },
-    {
-        path: "statistics",
-        element: <StatisticsPage/>
-    }
+const router = createBrowserRouter([
+    { path: "/", element: <AuthPage /> },
+    { path: "/home", element: <HomePage /> },
+    { path: "/login", element: <LoginPage /> },
+    { path: "/statistics", element: <StatisticsPage /> },
+    { path: "/account", element: <UserPage /> }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <CookiesProvider>
+            <RouterProvider router={router} />
+        </CookiesProvider>
     </React.StrictMode>
 );
-
