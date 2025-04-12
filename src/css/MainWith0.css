@@ -1,0 +1,101 @@
+.main-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f5;
+    padding: 20px;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .header-icons svg {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .user-info {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .user-info h3 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .user-info p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .summary {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .summary-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .summary-card h4 {
+    font-size: 18px;
+    color: #4f46e5;
+  }
+  
+  .empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+  
+  .upload-box {
+    background: #e4e4e7;
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .upload-box p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .upload-button {
+    background: #6366f1;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background: #4f46e5;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
