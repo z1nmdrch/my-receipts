@@ -6,29 +6,63 @@
     background-color: #fff;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .menu-button {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-button {
     background: none;
     border: none;
     cursor: pointer;
-  }
-  
-  .company-title {
+    font-size: 20px;
+    padding: 4px;
+}
+
+.company-title {
     font-size: 1.5rem;
     font-weight: bold;
-  }
-  
-  .header-icons {
+    text-align: center;
+    flex: 1;
+}
+
+.header-icons {
     display: flex;
+    align-items: center;
     gap: 15px;
-  }
-  
-  .icon {
+}
+
+.icon {
     cursor: pointer;
-  }
-  
-  /* Sidebar */
+    transition: transform 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* ADAPTIVE */
+@media (max-width: 768px) {
+    .company-title {
+        font-size: 1.2rem;
+    }
+
+    .header-icons {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-title {
+        display: none; /* прячем название, если совсем узко */
+    }
+
+    .header {
+        padding: 8px 12px;
+    }
+}
+
+/* Sidebar */
  
 .sidebar {
   width: 250px;

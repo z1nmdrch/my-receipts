@@ -5,7 +5,7 @@ export default function StatWidget({ title, data }) {
 
             <h4 className="stat-widget-title">
                 {data.Amount || data.Count}
-                {data.Currency && <span>{data.Currency}</span>}
+                {data.Currency && <span className="stat-widget-currency">{data.Currency}</span>}
             </h4>
 
             <p className="stat-widget-description">

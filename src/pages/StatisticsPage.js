@@ -1,6 +1,5 @@
-import {FaBars, FaBell, FaUser} from "react-icons/fa";
 import "../css/Stats.css";
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import StatWidget from "../components/ui/StatWidget";
 import StatsFilter from "../components/ui/StatsFilter";
 import MostSpendingsStat from "../components/ui/MostSpendingsStat";
@@ -9,15 +8,38 @@ import SpendingTrends from "../components/ui/SpendingTrends";
 import AverageSpendings from "../components/ui/AverageSpendings";
 import Header from "../components/page_components/Header";
 import Sidebar from "../components/page_components/SideBar";
+import "../css/styles.css";
 
 export default function StatisticsPage() {
-
     const filters = ["Daily", "Weekly", "Monthly", "Yearly"];
     const [activeFilter, setActiveFilter] = useState(filters[0]);
-
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [loadData, setLoadData] = useState();
 
-    // ещё один костыль)))
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = async () => {
+        try {
+            const response = await fetch("http://localhost:8080/getStats", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+            if (response.ok) {
+                setLoadData(await response.json());
+            } else {
+                const errorMessage = await response.json();
+                alert(errorMessage);
+            }
+        } catch (e) {
+            console.error("Ошибка при загрузке данных:", e);
+        }
+    };
+
+    // Эти данные пока что заглушки, заменишь на loadData когда данные с сервера будут готовы
     const WidgetsData = {
         Daily: {
             "Overall Spent": { Amount: 2130, Currency: "₸" },
@@ -48,9 +70,6 @@ export default function StatisticsPage() {
             "Total Transactions": { Count: 1024 }
         }
     };
-
-
-    // костыль конечно, но пока сойдет)
 
     const MostSpendingsData = {
         Daily: [
@@ -160,18 +179,16 @@ export default function StatisticsPage() {
 
     return (
         <>
-            <div className="header-container">
-                <Header title={"Statistics"} onMenuClick={(e) => { e.stopPropagation(); setIsNavOpen(!isNavOpen); }} />
-                <Sidebar isOpen={isNavOpen} onClose={() => setIsNavOpen(false)}/>
-            </div>
+            <Header title={"Statistics"} onMenuClick={(e) => {
+                e.stopPropagation();
+                setIsNavOpen(!isNavOpen);
+            }} />
+            <Sidebar isOpen={isNavOpen} onClose={() => setIsNavOpen(false)} />
 
             <main>
                 <div className="main-container">
-
                     <div className="filtering-stats">
-
                         Set Period:
-
                         <ul className="filtering-stats-list">
                             {filters.map((filter, index) => (
                                 <li key={index} className="filter-stats-button">
@@ -183,51 +200,31 @@ export default function StatisticsPage() {
                                 </li>
                             ))}
                         </ul>
-
-
                     </div>
 
+                    <h3 className="overall-title">Overall</h3>
 
-                    <h3 className="overall-title">
-                        Overall
-                    </h3>
-
-                    <div className="stat-widgets">
+                    <div className="widget-row">
                         {Object.entries(WidgetsData[activeFilter]).map(([title, widget], index) => (
-                            <StatWidget key={index} title={title} data={widget}/>
+                            <StatWidget key={index} title={title} data={widget} />
                         ))}
                     </div>
 
-                    <h3 className="overall-title overall-title-analysis">
-                        Analysis
-                    </h3>
-                    <div className="stats-display stats-row-1">
+                    <h3 className="overall-title overall-title-analysis">Analysis</h3>
 
-                    <MostSpendingsStat
-                            data = {MostSpendingsData[activeFilter]}
-                        />
+                    <div className="stats-section">
+                        <div className="stats-display stats-row-1">
+                            <MostSpendingsStat data={MostSpendingsData[activeFilter]} />
+                            <PriceComparisonStat data={PriceComparisonData[activeFilter]} />
+                        </div>
 
-                        <PriceComparisonStat
-                            data = {PriceComparisonData[activeFilter]}
-                        />
-
+                        <div className="stats-display stats-row-2">
+                            <SpendingTrends data={TotalSpendingsData[activeFilter]} />
+                            <AverageSpendings data={AvgCheckData[activeFilter]} />
+                        </div>
                     </div>
-
-                    <div className="stats-display stats-row-2">
-
-                        <SpendingTrends
-                            data = {TotalSpendingsData[activeFilter]}
-                        />
-
-                        <AverageSpendings
-                            data = {AvgCheckData[activeFilter]}
-                        />
-
-                    </div>
-
-
                 </div>
             </main>
         </>
-    )
+    );
 }
