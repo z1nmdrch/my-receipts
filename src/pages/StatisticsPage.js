@@ -179,7 +179,7 @@ export default function StatisticsPage() {
 
     return (
         <>
-            <Header title={"Statistics"} onMenuClick={(e) => {
+            <Header title={"stats"} onMenuClick={(e) => {
                 e.stopPropagation();
                 setIsNavOpen(!isNavOpen);
             }} />

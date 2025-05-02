@@ -5,7 +5,6 @@ import RightSide from "../components/page_components/RightSide";
 function AuthPage() {
     return (
         <div className="main-wrapper">
-            <LeftSide/>
             <RightSide/>
         </div>
     );

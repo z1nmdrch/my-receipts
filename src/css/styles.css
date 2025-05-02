@@ -1,28 +1,6 @@
-/* Header */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.menu-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 4px;
-}
-
 .company-title {
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
     flex: 1;
 }
 
@@ -63,248 +41,388 @@
 }
 
 /* Sidebar */
- 
+
 .sidebar {
-  width: 250px;
-  background: #fff;
-  position: fixed;
-  left: -250px;
-  top: 0;
-  height: 100%;
-  transition: left 0.3s ease-in-out;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    background: #0C0021;
+    color: #fefefe;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.open {
-  left: 0;
+    left: 0;
 }
 
 .sidebar-header {
-  text-align: center;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .user-icon {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .sidebar-menu {
-  list-style: none;
-  padding: 20px;
+    list-style: none;
+    padding: 20px;
 }
 
-.sidebar-menu li {
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+.sidebar-menu li, .sidebar-menu li > a {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    transition: .2s ease-in-out;
 }
 
-.sidebar-menu li:hover {
-  background: #f5f5f5;
+.sidebar-menu li:hover, .sidebar-menu li > a:hover {
+    color: #6004FF;
 }
 
 .logout-button {
-  width: 100%;
-  padding: 15px;
-  background: #f44336;
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-align: center;
+    width: 100%;
+    padding: 15px;
+    background: #0C0021;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
 }
-
-.logout-button:hover {
-  background: #d32f2f;
-}
-
-
-
 
 .container {
-    padding: 16px;
-    background: #f5f5f5;
-    min-height: 100vh;
+    padding: 0 120px;
+    height: 100%;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
+.last-scanned-card {
+    border-radius: 12px;
+    padding: 16px 20px;
 
-.total {
-    color: #666;
-}
+    transition: box-shadow 0.2s ease-in-out;
 
-.filters {
     display: flex;
-    gap: 8px;
-    margin-top: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+
+    width: 60%;
+
+    cursor: pointer;
+
+    color: #0C0021;
 }
 
-.filter-button {
-    background: #ddd;
-    color: #333;
-    padding: 8px 16px;
-    border-radius: 8px;
+.last-scanned-title {
+    font-size: 24px;
 }
 
-.filter-button.active {
-    background: #007bff;
-    color: white;
+.last-scanned-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-.receipt-list {
-    margin-top: 24px;
+.last-scanned-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.last-scanned-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.last-scanned-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-scanned-item {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    justify-content: space-between;
+}
+
+.last-scanned-items {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.last-scanned-item-price {
+    opacity: 80%;
+    font-size: 14px;
+}
+
+.last-scanned-item-name {
+    font-size: 18px;
+}
+
+.last-scanned-date {
+    font-size: 14px;
+    opacity: 80%;
+}
+
+.last-scanned-body {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.last-scanned-body p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.last-scanned-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-scanned-total {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.last-scanned-total-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+main#main-page-main {
+    padding-top: 50px;
+    width: 100%;
+    height: 80vh;
+}
+
+.main-page-main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 35px;
+}
+
+.main-page-filter-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 35px;
+
+    color: #666666;
+}
+
+.main-page-filter-row-item {
+    cursor: pointer
+}
+
+.main-page-filter-row-item.active-filter {
+    color: #0C0021;
+    font-weight: 600;
+}
+
+.scan-new-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scan-new-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    border: #6004FF dashed;
+
+    cursor: pointer;
+}
+
+.scan-new-icon {
+    color: #6004FF;
+}
+
+.all-receipts {
+    padding-top: 5px;
+}
+
+.receipts-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
 .receipt-card {
-    padding: 16px;
-    border-left: 4px solid;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.food {
-    border-left-color: red;
-    color: red;
-}
-
-.cafe {
-    border-left-color: blue;
-    color: blue;
-}
-
-.date {
-    font-size: 12px;
-    color: #666;
-}
-
-.receipt-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-.amount {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-}
-
-.category {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.add-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: green;
-    color: white;
-    padding: 16px;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.add-button:hover {
-    background: darkgreen;
-}
-
-
-
-
-
-
-.filters-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .filters {
-    display: flex;
-    gap: 10px;
-    background: #f8f9fa;
-    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .filter-button {
-    background-color: #088586;
-    color: #333;
-    border: 2px solid #ccc;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .filter-button:hover {
-    background-color: #088586;
-    color: white;
-  }
-  
-  .filter-button.active {
-    background-color: #005556;
-    color: white;
-    border-color: #005556;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-  }
-  
-
-
-  .price-filter {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .price-input {
-    width: 120px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .price-input:focus {
-    border-color: #005556;
-  }
-  
-  .category-filter {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .category-select {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    padding: 16px;
+    max-width: 450px;
+    height: 100px;
     background-color: #fff;
+    transition: transform .2s ease-in-out;
+
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.receipt-card:hover {
+    transform: translateY(-2px);
+}
+
+.receipt-total {
+    color: #6004FF;
+    font-weight: 700;
+}
+
+.receipt-date {
+    font-size: 14px;
+    color: #666666;
+}
+
+.receipt-
+.receipt-store {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6004FF;
+    margin-bottom: 4px;
+}
+
+.receipt-items-count {
+    font-size: 14px;
+    color: #888;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    gap: 12px;
+
+    padding-bottom: 30px;
+}
+
+.pagination-controls button {
+    padding: 6px 14px;
+    background-color: #6004FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
     cursor: pointer;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .category-select:focus {
-    border-color: #005556;
-  }
-  
+    transition: background-color 0.2s ease;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    font-weight: 500;
+    color: #333;
+}
+
+.last-scanned-card {
+    background: #f4f6f8;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.last-scanned-card ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+}
+
+.fade-container {
+    transition: opacity 0.3s ease;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.receipts-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sorting-by-date-button {
+    background-color: #6004FF;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    padding: 0 10px;
+
+    color: #fff;
+    cursor: pointer;
+}
+
+#search-receipts {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 600px) {
+    .greeting-text {
+        text-align: center;
+    }
+
+    .main-page-filter-row-item {
+        text-align: center;
+    }
+
+    .scan-new-body {
+        height: 200px;
+        width: 200px;
+    }
+
+    .scan-new-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media(max-width: 1060px) {
+    .receipt-total {
+        display: none;
+    }
+}
+

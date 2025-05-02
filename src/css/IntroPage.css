@@ -1,0 +1,126 @@
+main#intro-page-content {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background-color: #0C0021;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.intro-page-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.intro-left-side {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    overflow: hidden;
+}
+
+h1.intro-logo-title {
+    font-size: 48px;
+    margin: 0;
+    padding: 0;
+}
+
+.intro-subtitle {
+    font-size: 16px;
+    text-align: start;
+}
+
+.intro-buttons-row {
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.intro-button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    min-width: 70px;
+    cursor: pointer;
+    font-size: 16px;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.toLoginButton {
+    background-color: #6004FF;
+    color: #ffffff;
+    border: 2px solid #6004FF;
+    transition: 0.2s ease-in-out;
+}
+
+.toLoginButton:hover {
+    background-color: #0C0021;
+}
+
+.toSignUpButton {
+    background-color: #0C0021;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+
+.toSignUpButton:hover {
+    color: #6004FF;
+    background-color: transparent;
+}
+
+.intro-right-side {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.intro-right-side img {
+    max-width: 86%;
+    height: auto;
+}
+
+@media (max-width: 1000px) {
+    .intro-page-container {
+        flex-direction: column-reverse;
+        row-gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .intro-left-side {
+        align-items: center;
+    }
+
+    .intro-buttons-row {
+        justify-content: center;
+    }
+
+    h1.intro-logo-title {
+        font-size: 36px;
+    }
+
+    .intro-subtitle {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .intro-button {
+        max-width: 200px;
+    }
+
+    .intro-right-side img {
+        max-height: 300px;
+    }
+}

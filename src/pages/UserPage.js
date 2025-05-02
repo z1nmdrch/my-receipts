@@ -57,7 +57,7 @@ export default function UserPage() {
     return (
         <>
             <div className="header-container">
-                <Header title={"Account"} onMenuClick={(e) => {
+                <Header title={"account"} onMenuClick={(e) => {
                     e.stopPropagation();
                     setIsNavOpen(!isNavOpen);
                 }} />
@@ -107,7 +107,6 @@ export default function UserPage() {
                 </div>
             </main>
 
-            {/* Модалка с деталями чека */}
             <Modal open={!!selectedReceipt} onClose={() => setSelectedReceipt(null)}>
                 <ModalDialog>
                     <ModalClose onClick={() => setSelectedReceipt(null)} />

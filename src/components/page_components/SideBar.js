@@ -47,7 +47,6 @@ export default function Sidebar({ isOpen, onClose }) {
                 <li><FaChartLine />
                     <Link to="/statistics">Statistics</Link>
                 </li>
-                <li><FaCog /> Settings</li>
                 <li>
                     <button className="logout-button" onClick={() => setOpenExitModal(true)}>
                         <FaSignOutAlt/>

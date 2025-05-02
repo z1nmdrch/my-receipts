@@ -1,23 +1,14 @@
 .right-wrapper {
-    height: 100%;
-    width: 100%;
-
-    background-color: #EBEBEB;
-
-    padding: 0 40px;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.right-container {
-    background-color: blue;
-}
-
 form {
-    background-color: #fff;
-    padding: 30px 40px;
+    background-color: inherit;
+    padding: 10px 40px;
 
     display: flex;
     flex-direction: column;
@@ -27,7 +18,7 @@ form {
 
 .form-title {
     text-align: center;
-    color: #000;
+    color: #fff;
     font-size: 24px;
     font-weight: 500;
 }
@@ -40,12 +31,12 @@ form {
 
 label {
     font-size: 14px;
-    color: #767676;
+    color: #fefefe;
     font-weight: 500;
 }
 
 input[type="text"], input[type="password"] {
-    border: 2px #767676 solid;
+    border: 2px #fefefe solid;
     border-radius: 5px;
     padding: 8px 15px;
     width: 250px;
@@ -59,7 +50,7 @@ input[type="text"], input[type="password"] {
 
 input[type="text"]:focus, input[type="password"]:focus {
     outline: none;
-    border: 2px #6004FF solid;
+    border: 2px #fefefe solid;
 }
 
 .buttons-column {
@@ -84,8 +75,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 #authorize:hover {
-    background-color: #ffffff;
-    color: #6004FF;
+    background-color: #0C0021;
 }
 
 .google-logo {
@@ -94,9 +84,9 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 #with-google {
     padding: 12px 0;
-    border: 2px solid rgba(154, 196, 255, 50%);
-    background-color: rgba(154, 196, 255, 50%);
-    color: #6004FF;
+    border: 2px solid #fefefe;
+    background-color: #0C0021;
+    color: #fefefe;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -112,10 +102,10 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 #with-google:hover {
-    background-color: white;
+    color: #6004FF;
 }
 
-p {
+p.already-account, p.dont-have-account {
     font-size: 14px;
     text-align: center;
     display: flex;
@@ -123,10 +113,17 @@ p {
     column-gap: 5px;
     justify-content: center;
     font-weight: 500;
+    color: #fefefe;
 }
 
-p a {
+p.already-account a, p.dont-have-account a {
     text-decoration: none;
-    color: #6004FF;
+    color: #007bff;
+}
+
+.login-title {
+    text-align: center;
+    color: #fefefe;
+    padding-bottom: 20px;
 }
 

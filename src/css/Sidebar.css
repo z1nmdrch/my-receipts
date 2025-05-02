@@ -1,5 +1,5 @@
 .sidebar-menu a {
-    color: #0C0021;
+    color: #fefefe;
     text-decoration: none;
 }
 
@@ -24,8 +24,8 @@ nav.sidebar {
     transition: .2s ease-in-out;
 }
 
+
 .logout-button:hover {
-    color: red;
     background-color: inherit;
 }
 

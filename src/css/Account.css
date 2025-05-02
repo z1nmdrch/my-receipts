@@ -103,17 +103,19 @@
 }
 
 .receipt-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
     padding: 20px;
-    border-radius: 5px;
-    margin: 5px 0;
-    cursor: pointer;
-    transition: background 0.2s ease;
-
+    border-radius: 8px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    column-gap: 35px;
+    align-items: center;
+    gap: 20px;
+    transition: background 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 .account-receipts-list {
     padding: 0;
@@ -138,4 +140,92 @@
     justify-content: space-between;
     padding: 5px 0;
 }
+
+@media (max-width: 1065px) {
+    .account-container {
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: stretch;
+    }
+
+    .profile, .profile-info {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .user-profile-picture {
+        height: 120px;
+        width: 120px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .profile-email {
+        font-size: 14px;
+    }
+
+    .settings-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .account-receipts-list {
+        width: 100%;
+    }
+
+    .receipt-card {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 5px;
+    }
+
+    .receipt-date, .receipt-organization, .receipt-total {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-card {
+        padding: 15px;
+    }
+
+    .user-profile-picture {
+        height: 100px;
+        width: 100px;
+    }
+
+    .profile-name {
+        font-size: 18px;
+    }
+
+    .profile-email, .profile-username {
+        font-size: 13px;
+    }
+
+    .receipt-card {
+        padding: 12px;
+    }
+
+    .modal-receipt-item {
+        font-size: 14px;
+    }
+}
+
+/* Дополнительно: ограничим ширину модалки */
+.MuiModal-root .MuiModal-dialog,
+.joy-ModalDialog-root {
+    max-width: 90vw !important;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
 

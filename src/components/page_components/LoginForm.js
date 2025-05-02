@@ -77,9 +77,9 @@ export default function LoginForm() {
                 </button>
             </div>
 
-            <p>
+            <p className="dont-have-account">
                 Don't have an account?
-                <Link to="/" className="go-to-login">
+                <Link to="/register" className="go-to-login">
                     Create!
                 </Link>
             </p>

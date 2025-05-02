@@ -1,11 +1,8 @@
-import { useState, useRef } from "react";
-import { FaPlus } from "react-icons/fa";
-import { Modal } from "@mui/material";
-import { Button, ModalClose, ModalDialog, Typography } from "@mui/joy";
-import "../../css/AddReceipt.css";
+import {useRef, useState} from "react";
+import {Button, ModalClose, ModalDialog, Typography} from "@mui/joy";
+import {Modal} from "@mui/material";
 
-export default function AddReceipt() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+export default function AddReceipt({ open, onClose }) {
     const [selectedImage, setSelectedImage] = useState(null);
     const fileInputRef = useRef(null);
 
@@ -43,7 +40,7 @@ export default function AddReceipt() {
             if (response.ok) {
                 alert("Image uploaded successfully!");
                 setSelectedImage(null);
-                setIsModalOpen(false);
+                onClose();
             } else {
                 alert("Upload failed.");
             }
@@ -53,16 +50,11 @@ export default function AddReceipt() {
         }
     };
 
-
     return (
         <>
-            <button onClick={() => setIsModalOpen(true)} className="add-button">
-                <FaPlus size={24} />
-            </button>
-
-            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <Modal open={open} onClose={onClose}>
                 <ModalDialog>
-                    <ModalClose onClick={() => setIsModalOpen(false)} />
+                    <ModalClose onClick={onClose} />
                     <Typography variant="h6">Add Receipt</Typography>
 
                     {selectedImage && (
@@ -70,8 +62,16 @@ export default function AddReceipt() {
                             src={selectedImage}
                             alt="Preview"
                             className="image-preview"
+                            style={{
+                                maxWidth: "100%",
+                                maxHeight: "300px",
+                                objectFit: "contain",
+                                borderRadius: "8px",
+                                marginBottom: "1rem",
+                            }}
                         />
                     )}
+
 
                     <input
                         ref={fileInputRef}
@@ -81,11 +81,11 @@ export default function AddReceipt() {
                         style={{ display: "none" }}
                     />
 
-                    <button className="custom-file-button" onClick={() => fileInputRef.current.click()}>
+                    <Button style={{backgroundColor: "#6004FF", padding: "5px 0", fontFamily: "Poppins"}} className="custom-file-button" onClick={() => fileInputRef.current.click()}>
                         Choose Image
-                    </button>
+                    </Button>
 
-                    <Button variant="solid" color="neutral" onClick={handleUpload}>
+                    <Button variant="solid" style={{backgroundColor: "#0C0021", padding: "5px 0", fontFamily: "Poppins"}} onClick={handleUpload}>
                         Add to Database
                     </Button>
                 </ModalDialog>
